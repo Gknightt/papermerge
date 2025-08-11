@@ -1,2 +1,3 @@
 mod_wsgi
 python-memcached
+Django>=3.2
