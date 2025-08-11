@@ -1,3 +1,4 @@
 mod_wsgi
 python-memcached
 Django>=3.2
+celery>=5.0,<6.0
