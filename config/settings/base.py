@@ -301,11 +301,9 @@ if not os.path.exists(
 # Useful only in dev/production (must be False in testing environment)
 PAPERMERGE_CREATE_SPECIAL_FOLDERS = True
 
-CELERY_BROKER_URL = "filesystem://"
-CELERY_BROKER_TRANSPORT_OPTIONS = {
-    'data_folder_in': PAPERMERGE_TASK_QUEUE_DIR,
-    'data_folder_out': PAPERMERGE_TASK_QUEUE_DIR,
-}
+CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+
 
 CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 CELERY_WORKER_CONCURENCY = 1
@@ -318,7 +316,6 @@ CELERY_TASK_DEFAULT_EXCHANGE_TYPE = 'direct'
 CELERY_TASK_DEFAULT_ROUTING_KEY = 'papermerge'
 
 CELERY_INCLUDE = 'papermerge.core.tasks'
-CELERY_RESULT_BACKEND = 'rpc://'
 CELERY_TASK_RESULT_EXPIRES = 86400
 
 REST_FRAMEWORK = {
