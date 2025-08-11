@@ -60,14 +60,14 @@ PAPERMERGE_IMPORTER_DIR = cfg_papermerge.get(
     None
 )
 
-PAPERMERGE_FILES_MIN_UNMODIFIED_DURATION = cfg_papermerge.get_var(
+PAPERMERGE_FILES_MIN_UNMODIFIED_DURATION = cfg_papermerge.get(
     "FILES_MIN_UNMODIFIED_DURATION",
-    1
+    default=1
 )
 
-PAPERMERGE_IMPORTER_LOOP_TIME = cfg_papermerge.get_var(
+PAPERMERGE_IMPORTER_LOOP_TIME = cfg_papermerge.get(
     "IMPORTER_LOOP_TIME",
-    5
+    default=5
 )
 
 
@@ -167,7 +167,7 @@ MIDDLEWARE = [
     'papermerge.core.middleware.TimezoneMiddleware'
 ]
 
-PAPERMERGE_LANGUAGE_FROM_AGENT = cfg_papermerge.get_var(
+PAPERMERGE_LANGUAGE_FROM_AGENT = cfg_papermerge.get(
     'language_from_agent', False
 )
 
@@ -219,7 +219,7 @@ TIME_ZONE = 'Europe/Berlin'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LANGUAGE_CODE = cfg_papermerge.get_var(
+LANGUAGE_CODE = cfg_papermerge.get(
     'language_code',
     default='en'
 )
@@ -281,7 +281,7 @@ UPLOAD_ALLOWED_MIMETYPES = ['application/pdf']
 # in conjunction with CELERY_BROKER_URL = "filesystem://"
 # This settings (TASK_QUEUE_DIR + filesystem as broker) is very convinient
 # in development environment.
-PAPERMERGE_TASK_QUEUE_DIR = cfg_papermerge.get_var(
+PAPERMERGE_TASK_QUEUE_DIR = cfg_papermerge.get(
     'TASK_QUEUE_DIR',
     default=os.path.join(PROJ_ROOT, 'queue')
 )
