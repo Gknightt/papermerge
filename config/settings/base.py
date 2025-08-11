@@ -60,7 +60,7 @@ PAPERMERGE_IMPORTER_DIR = cfg_papermerge.get(
     None
 )
 
-PAPERMERGE_FILES_MIN_UNMODIFIED_DURATION = cfg_papermerge.get(
+PAPERMERGE_FILES_MIN_UNMODIFIED_DURATION = cfg_papermerge.get('FILES',
     "FILES_MIN_UNMODIFIED_DURATION",
     default=1
 )
