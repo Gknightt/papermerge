@@ -11,6 +11,7 @@ WORKDIR /app
 
 COPY requirements/ requirements/
 
+RUN pip uninstall -y celery || true
 RUN pip install --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements/production.txt
 RUN pip install --no-cache-dir -r requirements/extra/pg.txt
